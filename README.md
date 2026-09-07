@@ -1,4 +1,4 @@
-# 👨‍💻 Python tutorials
+# 👨‍💻 Dev Guides
 
 Welcome to the **Python tutorials** repository!
 
