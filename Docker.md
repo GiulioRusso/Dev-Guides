@@ -2,28 +2,36 @@
 
 <center><h1>🐳 Docker Guide</h1></center>
 
+**Who this is for:** Python and Deep Learning users who need their project to run the same on another machine.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** A terminal and a Python project with a `requirements.txt`. No prior Docker knowledge.
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [1️⃣ The Problem Docker Solves](#1️⃣-the-problem-docker-solves)
+- [2️⃣ The Three Words You Must Know](#2️⃣-the-three-words-you-must-know)
+- [3️⃣ Installation](#3️⃣-installation)
+- [4️⃣ Your First Container](#4️⃣-your-first-container)
+- [5️⃣ Essential Commands](#5️⃣-essential-commands)
+- [6️⃣ Writing Your First Dockerfile](#6️⃣-writing-your-first-dockerfile)
+- [7️⃣ Layers and Build Cache](#7️⃣-layers-and-build-cache)
+- [8️⃣ Volumes: Getting Data In and Out](#8️⃣-volumes-getting-data-in-and-out)
+- [9️⃣ Ports: Reaching a Service Inside the Container](#9️⃣-ports-reaching-a-service-inside-the-container)
+- [🔟 Environment Variables](#-environment-variables)
+- [1️⃣1️⃣ Docker Compose](#1️⃣1️⃣-docker-compose)
+- [1️⃣2️⃣ Docker for Deep Learning (GPU)](#1️⃣2️⃣-docker-for-deep-learning-gpu)
+- [1️⃣3️⃣ Common Errors and How to Fix Them](#1️⃣3️⃣-common-errors-and-how-to-fix-them)
+- [1️⃣4️⃣ Best Practices](#1️⃣4️⃣-best-practices)
+- [1️⃣5️⃣ Cheat Sheet](#1️⃣5️⃣-cheat-sheet)
+- [🎓 Summary](#-summary)
+
+</details>
+
 A beginner-friendly guide to Docker: what it is, why it exists, and how to use it for Python and Deep Learning projects. **No prior knowledge is assumed** — if you have never opened a terminal for anything more than `pip install`, you are in the right place.
 
 <br>
 
-## 🗂️ Table of Contents
-1. [The Problem Docker Solves](#1️⃣-the-problem-docker-solves)
-2. [The Three Words You Must Know](#2️⃣-the-three-words-you-must-know)
-3. [Installation](#3️⃣-installation)
-4. [Your First Container](#4️⃣-your-first-container)
-5. [Essential Commands](#5️⃣-essential-commands)
-6. [Writing Your First Dockerfile](#6️⃣-writing-your-first-dockerfile)
-7. [Layers and Build Cache](#7️⃣-layers-and-build-cache)
-8. [Volumes: Getting Data In and Out](#8️⃣-volumes-getting-data-in-and-out)
-9. [Ports: Reaching a Service Inside the Container](#9️⃣-ports-reaching-a-service-inside-the-container)
-10. [Environment Variables](#-environment-variables)
-11. [Docker Compose](#-docker-compose)
-12. [Docker for Deep Learning (GPU)](#-docker-for-deep-learning-gpu)
-13. [Common Errors and How to Fix Them](#-common-errors-and-how-to-fix-them)
-14. [Best Practices](#-best-practices)
-15. [Cheat Sheet](#-cheat-sheet)
-
-<br>
 
 ## 1️⃣ The Problem Docker Solves
 
@@ -314,6 +322,7 @@ CMD ["python", "src/main.py"]
 **`.dockerignore`** — same idea as `.gitignore`. Without it, `COPY . .` will happily copy your 40 GB dataset and your `venv/` into the image:
 
 ```
+.venv/
 venv/
 __pycache__/
 *.pyc

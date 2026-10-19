@@ -1,4 +1,26 @@
+[Back to Index 🗂️](./README.md)
+
 <center><h1>🤝 Collaborative Git Workflow Guide</h1></center>
+
+**Who this is for:** Anyone working on a shared repository who wants a safe branch, pull request and merge routine.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** Git installed; a GitHub (or GitLab) account.
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [🔄 The Basic Workflow](#-the-basic-workflow)
+- [🚀 Initial Setup](#-initial-setup)
+- [📅 Daily Workflow Step-by-Step](#-daily-workflow-step-by-step)
+- [🌳 Understanding Branches](#-understanding-branches)
+- [⚔️ Handling Merge Conflicts](#️-handling-merge-conflicts)
+- [✨ Best Practices](#-best-practices)
+- [📖 Common Scenarios](#-common-scenarios)
+- [🆘 Troubleshooting](#-troubleshooting)
+- [🎯 Quick Reference Commands](#-quick-reference-commands)
+- [🎓 Summary](#-summary)
+
+</details>
 
 A comprehensive guide for working on shared projects with Git, focusing on proper branching, pulling, merging, and conflict resolution.
 
@@ -845,3 +867,7 @@ git revert HEAD                          # Create commit that undoes last commit
 - You can always abort a merge with `git merge --abort`
 
 Good luck with your collaborative project! 🚀
+
+<br>
+
+[Back to Index 🗂️](./README.md)

@@ -2,6 +2,22 @@
 
 <center><h1>📦 Create a Python package installable via PyPI</h1></center>
 
+**Who this is for:** Anyone who wants to publish a Python package that installs with `pip install`.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** A working Python package, see the [Python Project Guide](./Python-Project-Guide.md).
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [1. PyPI account 👤](#1-pypi-account-)
+- [2. Local package project 📂](#2-local-package-project-)
+- [3. Create API Token 🔑](#3-create-api-token-)
+- [4. Load your package on PyPI 🔋](#4-load-your-package-on-pypi-)
+- [5. Deploy using `pyproject.toml` (modern alternative to `setup.py`) 🆕](#5-deploy-using-pyprojecttoml-modern-alternative-to-setuppy-)
+- [📦 Exposing the public API with `__init__.py`](#-exposing-the-public-api-with-__init__py)
+
+</details>
+
 <br>
 
 ## 1. PyPI account 👤
@@ -212,7 +228,7 @@ version = { attr = "your_package._version.__version__" }
 
 **Note**: To update your package, bump the version in `your_package/_version.py` (which `dynamic = ["version"]` reads automatically), rebuild (step `2.`), and re-upload (step `4.`). PyPI does not allow re-uploading the same version, so always increment it first.
 
-> If you're using [`uv`](./Python-Setup-Tutorial.md#-uv-fast-all-in-one) for the project, `uv build` and `uv publish` cover steps 2 and 3/4 with the same Trusted Publishing / token support, without needing `build`/`twine` as separate installs.
+> If you're using [`uv`](./Python-Setup-Tutorial.md#️-uv-fast-all-in-one) for the project, `uv build` and `uv publish` cover steps 2 and 3/4 with the same Trusted Publishing / token support, without needing `build`/`twine` as separate installs.
 
 <br>
 <br>

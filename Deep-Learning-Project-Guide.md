@@ -2,6 +2,33 @@
 
 <center><h1>🤖 Deep Learning Project Guide</h1></center>
 
+**Who this is for:** Researchers and students structuring a PyTorch training project, from argument parsing to checkpoints.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** Python, basic PyTorch, a working environment ([Python Setup Tutorial](./Python-Setup-Tutorial.md)).
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [1️⃣ Python Script Entry Point](#1️⃣-python-script-entry-point)
+- [2️⃣ Parameters](#2️⃣-parameters)
+- [3️⃣ Device](#3️⃣-device)
+- [4️⃣ Reproducibility](#4️⃣-reproducibility)
+- [5️⃣ Paths and Configuration](#5️⃣-paths-and-configuration)
+- [6️⃣ Dataset Class](#6️⃣-dataset-class)
+- [7️⃣ Data Splitting](#7️⃣-data-splitting)
+- [8️⃣ Data Transforms](#8️⃣-data-transforms)
+- [9️⃣ Data loader](#9️⃣-data-loader)
+- [🔟 Model Definition](#-model-definition)
+- [🦾 Training and Evaluation Pipeline](#-training-and-evaluation-pipeline)
+- [📁 Code Organization Best Practices](#-code-organization-best-practices)
+- [🌟 Best practices](#-best-practices)
+- [Project organization](#project-organization)
+- [Coding Style and Conventions](#coding-style-and-conventions)
+- [Optimizing the DataLoader](#optimizing-the-dataloader)
+- [Experiment Tracking and Logging](#experiment-tracking-and-logging)
+
+</details>
+
 <br>
 
 Welcome to your practical guide for setting up a deep learning project in Python. Whether you're building a research prototype or preparing for production deployment, having a clean, modular, and scalable project structure is essential.
@@ -1113,7 +1140,6 @@ net/
 └── validation.py                          # Validation script main
 ```
 
-Go check [this repository](https://github.com/GiulioRusso/Deep-Learning-boilerplate) for a Deep Learning boilerplate project.
 
 <br>
 <br>

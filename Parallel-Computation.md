@@ -2,6 +2,20 @@
 
 <center><h1>🔥 Parallel Computation</h1></center>
 
+**Who this is for:** Anyone whose Python or PyTorch code is too slow on one core or one GPU.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** Python and basic PyTorch; access to a multi-core or GPU machine helps.
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [↔️ Multicore Parallelism](#️-multicore-parallelism)
+- [⏮️ Reproducibility](#️-reproducibility)
+- [🏎️ GPUs](#️-gpus)
+- [⏱️ Model Summary and FLOPs](#️-model-summary-and-flops)
+
+</details>
+
 This guide focuses on leveraging parallelization in Python and PyTorch to maximize computational efficiency using GPUs and multi-core CPUs.
 
 <br>
@@ -448,3 +462,7 @@ Parameters: 23.59 M
 
 [Back to Index 🗂️](./README.md)
 
+
+<br>
+
+[Back to Index 🗂️](./README.md)

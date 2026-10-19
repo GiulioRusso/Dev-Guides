@@ -2,9 +2,30 @@
 
 <center><h1>⚡ PyTorch Lightning Guide</h1></center>
 
+**Who this is for:** PyTorch users who want to move an existing training loop to Lightning.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** The [Deep Learning Project Guide](./Deep-Learning-Project-Guide.md) or equivalent PyTorch experience.
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [🧱 Main Structural Shift: Everything inside the LightningModule](#-main-structural-shift-everything-inside-the-lightningmodule)
+- [🔁 Training / Validation / Test Loops: `_step()` Functions](#-training--validation--test-loops-_step-functions)
+- [📊 TensorBoard Logging](#-tensorboard-logging)
+- [🧪 Running Training](#-running-training)
+- [📈 Logging and Metrics](#-logging-and-metrics)
+- [🔧 Optimizers and Schedulers](#-optimizers-and-schedulers)
+- [📦 Extras: Checkpointing, EarlyStopping, Resume](#-extras-checkpointing-earlystopping-resume)
+- [🧪 Test After Training](#-test-after-training)
+- [📝 Notes](#-notes)
+
+</details>
+
 The typical PyTorch deep learning project structure can be implemented wih **PyTorch Lightning**, a framework that removes much of the boilerplate code while keeping flexibility. Lightning is great for scalability, readability, and rapid experimentation.
 
 > **Note**: This markdown assumes you're familiar with traditional PyTorch structure and focuses on **what changes** when you switch to Lightning.
+
+> **Install**: `pip install lightning` (or `uv add lightning`). Since Lightning 2.0 the package is `lightning` and the import is `lightning.pytorch`; the old `pytorch_lightning` package still works but is the legacy name.
 
 <br>
 
@@ -35,7 +56,7 @@ These are called automatically during training/validation/testing phases.
 ```python
 import torch
 import torch.nn.functional as F
-import pytorch_lightning as pl
+import lightning.pytorch as pl
 from torchmetrics.functional import accuracy
 
 class LitClassifier(pl.LightningModule):
@@ -92,8 +113,8 @@ In PyTorch Lightning:
 - Metrics such as `train_loss`, `val_loss`, and custom ones you log with `self.log(...)` are stored as events.
 
 ```python
-from pytorch_lightning.loggers import TensorBoardLogger
-from pytorch_lightning import Trainer
+from lightning.pytorch.loggers import TensorBoardLogger
+from lightning.pytorch import Trainer
 
 # Set up logger (creates logs/lightning_logs/ by default)
 logger = TensorBoardLogger("logs", name="my_experiment")
@@ -122,8 +143,8 @@ logs/
 Lightning replaces your training loop with a single line:
 
 ```python
-from pytorch_lightning import Trainer
-from pytorch_lightning.loggers import TensorBoardLogger
+from lightning.pytorch import Trainer
+from lightning.pytorch.loggers import TensorBoardLogger
 
 # Instantiate logger
 logger = TensorBoardLogger("lightning_logs", name="my_model")
@@ -209,8 +230,8 @@ In PyTorch Lightning, features like model checkpointing, early stopping, and tra
 - EarlyStopping: Stops training early if the monitored metric doesn’t improve after a defined number of validation steps.
 
 ```python
-from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
-from pytorch_lightning import Trainer
+from lightning.pytorch.callbacks import ModelCheckpoint, EarlyStopping
+from lightning.pytorch import Trainer
 
 # Define callbacks
 checkpoint = ModelCheckpoint(

@@ -2,6 +2,29 @@
 
 <center><h1>🛜 SSH Guide</h1></center>
 
+**Who this is for:** Students and researchers who need to run code on a remote GPU server.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** Basic terminal use; an account on a remote server.
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [🔮 Connecting to a Server](#-connecting-to-a-server)
+- [🗂️ SSH Config — Stop Repeating Yourself](#️-ssh-config--stop-repeating-yourself)
+- [*️⃣ Using SSH Keys to Avoid Passwords](#️⃣-using-ssh-keys-to-avoid-passwords)
+- [🔌 Disconnecting](#-disconnecting)
+- **🦆 Cyberduck**
+  - [💡 Steps to Connect](#-steps-to-connect)
+- **🐍 PyCharm**
+  - [1️⃣ Setting Up a Remote Interpreter](#1️⃣-setting-up-a-remote-interpreter)
+  - [2️⃣ Deployment on Remote Server](#2️⃣-deployment-on-remote-server)
+- **🥏 Visual Studio Code Remote**
+- **📟 Background Sessions**
+  - [⚒️ Using `tmux` for Persistent Sessions](#️-using-tmux-for-persistent-sessions)
+  - [🛠️ Using `nohup` for Background Processes](#️-using-nohup-for-background-processes)
+
+</details>
+
 SSH (Secure Shell) is a protocol that allows you to connect to another computer (typically a server) over the network. For example, it's often used to access remote servers with GPUs to run deep learning experiments.
 
 <br>

@@ -2,6 +2,21 @@
 
 <center><h1>👨‍💻 Python Project Guide</h1></center>
 
+**Who this is for:** Anyone starting a new Python project who wants a clean, documented layout.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** [Python Setup Tutorial](./Python-Setup-Tutorial.md).
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [1️⃣ Project Folder Structure](#1️⃣-project-folder-structure)
+- [2️⃣ Function Documentation (PEP 257 Style)](#2️⃣-function-documentation-pep-257-style)
+- [3️⃣ Virtual Environments & Dependency Tracking](#3️⃣-virtual-environments--dependency-tracking)
+- [4️⃣ Writing a clear README.md](#4️⃣-writing-a-clear-readmemd)
+- [5️⃣ Version Control](#5️⃣-version-control)
+
+</details>
+
 A practical guide to organizing, documenting, and maintaining clean Python projects — whether for Deep Learning, Data Science, or Software Engineering.
 
 <br>
@@ -15,7 +30,7 @@ my_project/
 ├── README.md                 # Project overview, installation, and usage
 ├── requirements.txt          # List of Python dependencies
 ├── .gitignore                # Files and folders to exclude from version control
-├── venv/                     # Virtual environment (excluded from Git)
+├── .venv/                    # Virtual environment (excluded from Git)
 ├── config/                   # Centralized configuration for paths, parameters, etc.
 │   └── config.yaml           # YAML file storing configurable paths or hyperparameters
 ├── src/                      # Main application code (organized by function or logic)
@@ -31,7 +46,7 @@ my_project/
 * `src/`: Contains your actual training, inference, and business logic.
 * `config/`: Stores one or more `.yaml` (for path structures), `.json`(for light data storage) or `.env` (for environment variables). These files can be easily loaded in your Python scripts with the libraries `yaml`, `json`and `dotenv` respectively.
 * `tests/`: Ensures all key functionality is verifiable.
-* `venv/`: Local project environment, kept out of version control.
+* `.venv/`: Local project environment (`venv` or `uv`), kept out of version control. Conda environments live outside the project instead.
 * `requirements.txt`: Captures dependencies used in the project.
 * `.gitignore`: Prevents accidental commits of logs, temp files, environments, etc.
 * `README.md`: Provides project setup, usage, and documentation.
@@ -74,16 +89,17 @@ This format is ideal for auto-generated documentation tools and makes code easie
 
 # 3️⃣ Virtual Environments & Dependency Tracking
 
-It's good practice to activate a virtual environment when working on any Python project, ensuring your dependencies remain isolated and controlled. All the dependencies are kept into a `requirements.txt` file that specify the name of the library used and eventually its version:
+It's good practice to activate a virtual environment when working on any Python project, ensuring your dependencies remain isolated and controlled. Pick one tool per project — `venv` + `pip`, Conda, or `uv` — as compared in the [Python Setup Tutorial](./Python-Setup-Tutorial.md#-which-tool). With `uv`, dependencies live in `pyproject.toml` + `uv.lock` and the steps below are handled by `uv add` / `uv sync`. With `venv` or Conda + `pip`, all the dependencies are kept into a `requirements.txt` file that specify the name of the library used and eventually its version:
 
 Example:
 
 ```bash
-Python>=3.8  # Python version
 torch>=1.13  # Package version greater or equal than
 numpy==2.2.3  # Exact version needed
 scikit-learn  # No version specified (the latest for your Python will be used)
 ```
+
+> **Note**: `requirements.txt` cannot pin the Python version itself — state it in the README, or use `requires-python` in `pyproject.toml` / `.python-version` with `uv`.
 
 You can automatically generate a `requirements.txt` with the `pipreqs` package:
 
@@ -167,7 +183,7 @@ Evaluate a pre-trained model:
 Use Git for everything — code, configs,
 dependency files -  in order to keep track of any changes.
 
-You can find a good Git Guide [here](https://rogerdudler.github.io/git-guide/).
+For a day-to-day collaborative workflow, see the [Git guide](./Git.md) (and [Git LFS](./Git-LFS.md) for large files). A quick external reference: [git - the simple guide](https://rogerdudler.github.io/git-guide/).
 
 <br>
 <br>

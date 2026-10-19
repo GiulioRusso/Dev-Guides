@@ -2,11 +2,30 @@
 
 <center><h1>🧪 Machine Learning Project Guide</h1></center>
 
+**Who this is for:** Students building a classic ML pipeline on tabular data with scikit-learn.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** Python basics, pandas, a working environment ([Python Setup Tutorial](./Python-Setup-Tutorial.md)).
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [1️⃣ Imports & Environment Setup](#1️⃣-imports--environment-setup)
+- [2️⃣ File Path](#2️⃣-file-path)
+- [3️⃣ Load Dataset](#3️⃣-load-dataset)
+- [4️⃣ Data Exploration and Visualization](#4️⃣-data-exploration-and-visualization)
+- [5️⃣ Data preprocessing](#5️⃣-data-preprocessing)
+- [6️⃣ Model and Parameters definition](#6️⃣-model-and-parameters-definition)
+- [7️⃣ Building Pipelines](#7️⃣-building-pipelines)
+- [8️⃣ Training & Cross-Validation](#8️⃣-training--cross-validation)
+- [9️⃣ Evaluation](#9️⃣-evaluation)
+
+</details>
+
 <br>
 
 Welcome to your practical guide for setting up a machine‑learning project in Python with tabular data—walking you through every essential step from raw CSVs to a production‑ready model. This checklist maps each notebook cell to a concise narrative so you can switch effortlessly between code and guidance.
 
-## 1️⃣ Imports & Environment Setup
+## 1️⃣ Imports & Environment Setup
 
 Bundles every critical import and seed‑setting command into one upfront cell—eliminating the hunting for scattered imports later and ensuring each run is perfectly reproducible.
 
@@ -492,6 +511,5 @@ These metrics provide an honest snapshot of generalisation performance and guide
     print(f"Test R² Score: {r2:.4f}")
     ```
 
-Go check [this repository](https://github.com/GiulioRusso/Machine-Learning-boilerplate) for a Machine Learning boilerplate project.
 
 [Back to Index 🗂️](./README.md)

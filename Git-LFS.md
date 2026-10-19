@@ -1,4 +1,30 @@
+[Back to Index 🗂️](./README.md)
+
 <center><h1>📦 Git LFS Guide</h1></center>
+
+**Who this is for:** Anyone who needs to version datasets, model weights or other large binaries.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** Basic Git (`clone`, `add`, `commit`, `push`), see the [Git guide](./Git.md).
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [1️⃣ The Problem Git LFS Solves](#1️⃣-the-problem-git-lfs-solves)
+- [2️⃣ How Git LFS Works](#2️⃣-how-git-lfs-works)
+- [3️⃣ Installation](#3️⃣-installation)
+- [4️⃣ Setting Up a Repository](#4️⃣-setting-up-a-repository)
+- [5️⃣ Tracking Files](#5️⃣-tracking-files)
+- [6️⃣ Daily Workflow](#6️⃣-daily-workflow)
+- [7️⃣ Cloning and Pulling LFS Repositories](#7️⃣-cloning-and-pulling-lfs-repositories)
+- [8️⃣ Migrating Existing Large Files](#8️⃣-migrating-existing-large-files)
+- [9️⃣ Storage, Quotas, and Hosting](#9️⃣-storage-quotas-and-hosting)
+- [🔟 Common Errors and How to Fix Them](#-common-errors-and-how-to-fix-them)
+- [🧭 Best Practices](#-best-practices)
+- [🔀 Alternatives to Git LFS](#-alternatives-to-git-lfs)
+- [📋 Cheat Sheet](#-cheat-sheet)
+- [🎓 Summary](#-summary)
+
+</details>
 
 A beginner-friendly guide to **Git Large File Storage (Git LFS)**: what it is, why plain Git struggles with big files, and how to version datasets, model weights, and other large binaries without bloating your repository. **No prior knowledge is assumed** beyond basic Git (`clone`, `add`, `commit`, `push`).
 

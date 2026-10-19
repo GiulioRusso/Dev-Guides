@@ -2,9 +2,61 @@
 
 <center><h1>🐍 What is Python?</h1></center>
 
+**Who this is for:** Anyone starting with Python: installing it, choosing between `venv`, Conda and `uv`, and setting up Jupyter, PyCharm or VS Code.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** A terminal. Nothing else.
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [⌨️ Basic Python Commands](#️-basic-python-commands)
+- [🚨 Python3 vs Python2](#-python3-vs-python2)
+- **🦾 Install Python**
+  - [macOS 🍎](#macos-)
+  - [Linux 🐧](#linux-)
+  - [Windows 🪟](#windows-)
+- **📦 Installing Python Packages**
+  - [⚙️ Installing `pip`](#️-installing-pip)
+  - [⌨️ Basic `pip` Commands](#️-basic-pip-commands)
+- **❌ Remove Python**
+  - [macOS 🍎:](#macos--1)
+  - [Windows 🪟:](#windows--1)
+  - [🐧 Linux](#-linux)
+- **🔄 Switching Between Installed Python Versions**
+- **🌀 Virtual Environments**
+  - [🧭 Which Tool?](#-which-tool)
+  - [📋 Workflow Comparison](#-workflow-comparison)
+  - [🅰️ `venv` + `pip`](#️-venv--pip)
+  - [🅱️ Conda](#️-conda)
+  - [🅾️ uv (fast, all-in-one)](#️-uv-fast-all-in-one)
+  - [Why Use Virtual Environments?](#why-use-virtual-environments)
+- **📦 Deploying Python Code**
+  - [📜 `requirements.txt` (for Pip-Based Environments)](#-requirementstxt-for-pip-based-environments)
+  - [📝 Writing Dependencies Manually](#-writing-dependencies-manually)
+  - [🛠️ `environment.yaml` (For Conda-Based Environments)](#️-environmentyaml-for-conda-based-environments)
+  - [📥 Installing Dependencies](#-installing-dependencies)
+  - [🌟 Best Practices](#-best-practices)
+  - [🔒 Security Note](#-security-note)
+- **📓 Jupyter Notebooks and JupyterLab 🧪**
+  - [📙 Installing Jupyter Notebook](#-installing-jupyter-notebook)
+  - [🏎️ Running Jupyter Notebook](#️-running-jupyter-notebook)
+  - [🧬 Kernels: Why the Active Environment Isn't Automatically Used](#-kernels-why-the-active-environment-isnt-automatically-used)
+  - [📒 Installing JupyterLab](#-installing-jupyterlab)
+  - [🛩️ Running JupyterLab](#️-running-jupyterlab)
+- **🌴 Using PyCharm for Python Projects**
+  - [🔩 PyCharm Install](#-pycharm-install)
+  - [1️⃣ Creating a Project with a Virtual Environment](#1️⃣-creating-a-project-with-a-virtual-environment)
+  - [2️⃣ Creating a Project without a Virtual Environment](#2️⃣-creating-a-project-without-a-virtual-environment)
+- **🥏 Using Visual Studio Code for Python Projects**
+  - [🔩 Visual Studio Code Install](#-visual-studio-code-install)
+  - [1️⃣ Creating a Project with a Virtual Environment](#1️⃣-creating-a-project-with-a-virtual-environment-1)
+  - [2️⃣ Creating a Project without a Virtual Environment](#2️⃣-creating-a-project-without-a-virtual-environment-1)
+
+</details>
+
 Python is a high-level, interpreted programming language widely used in various fields. When working with Python, there are a few key concepts you should understand:
 
-**1. Virtual Environment**: A virtual environment is an isolated workspace for Python projects. It allows you to manage dependencies for your project without interfering with the global Python installation or other projects. `venv` is the name of the **stdlib module** that creates one of the possible kinds of virtual environment — see the [Virtual Environments](#virtual-environments) chapter for the other options (Conda, uv).<br>
+**1. Virtual Environment**: A virtual environment is an isolated workspace for Python projects. It allows you to manage dependencies for your project without interfering with the global Python installation or other projects. `venv` is the name of the **stdlib module** that creates one of the possible kinds of virtual environment — see the [Virtual Environments](#-which-tool) chapter for the other options (Conda, uv).<br>
 **2. Interpreter**: The Python interpreter is the program that reads and executes Python code. Depending on your setup, the interpreter could refer to the system Python, a version you installed manually, or one inside a virtual environment.<br>
 **3. Script**: A script is a standalone Python file (with a `.py` extension) designed to perform a specific task when executed.<br>
 
@@ -43,7 +95,7 @@ Python 2 and Python 3 are distinct versions of the Python programming language, 
 
 On modern systems `python` might not be available. To ensure compatibility, always specify `python3` when working with Python 3.
 
-- macOS and Linux systems often include a system-managed version of Python for internal operations (e.g., Python 2.x or 3.x). **Do not modify or remove it** — the OS itself (package managers, system scripts) may depend on it. See the [⚠️ system Python warning](#-remove-python) below.
+- macOS and Linux systems often include a system-managed version of Python for internal operations (e.g., Python 2.x or 3.x). **Do not modify or remove it** — the OS itself (package managers, system scripts) may depend on it. See the [⚠️ system Python warning](#-linux) below.
 
 To check the version of Python installed:
 - For Python 2: `python2 --version`
@@ -327,7 +379,7 @@ On **Windows**, modify the system environment variables:
 python --version
 ```
 
-> 💡 **Better approach**: manually juggling `PATH` doesn't scale past two versions and is easy to get wrong. For managing several Python versions side by side, use a dedicated version manager instead — [`pyenv`](https://github.com/pyenv/pyenv) (macOS/Linux) or `uv python install <version>` / `uv python pin <version>` (cross-platform, see the [uv workflow](#-uv-fast-all-in-one) below), which let you install multiple versions and switch per-project without touching `PATH` by hand.
+> 💡 **Better approach**: manually juggling `PATH` doesn't scale past two versions and is easy to get wrong. For managing several Python versions side by side, use a dedicated version manager instead — [`pyenv`](https://github.com/pyenv/pyenv) (macOS/Linux) or `uv python install <version>` / `uv python pin <version>` (cross-platform, see the [uv workflow](#️-uv-fast-all-in-one) below), which let you install multiple versions and switch per-project without touching `PATH` by hand.
 
 <br>
 <br>
@@ -363,7 +415,7 @@ The same seven actions, one row per tool — use this as a cheat sheet once you'
 | 1. Create | `python3 -m venv .venv` | `conda create -n myenv python=3.12` | `uv venv --python 3.12` (or `uv init` for a full project) |
 | 2. Activate | `source .venv/bin/activate` | `conda activate myenv` | `source .venv/bin/activate` |
 | 3. Install a package | `pip install numpy` | `conda install -c conda-forge numpy` | `uv add numpy` |
-| 4. Record dependencies | `pip freeze > requirements.txt` (or `pipreqs .`, see [Deploying Python Code](#-deploying-python-code)) | `conda env export --from-history > environment.yaml` | automatic — written to `uv.lock` on every `uv add` |
+| 4. Record dependencies | `pip freeze > requirements.txt` (or `pipreqs .`, see [Deploying Python Code](#-requirementstxt-for-pip-based-environments)) | `conda env export --from-history > environment.yaml` | automatic — written to `uv.lock` on every `uv add` |
 | 5. Reproduce elsewhere | `pip install -r requirements.txt` | `conda env create -f environment.yaml` | `uv sync` |
 | 6. Run code | `python script.py` | `python script.py` | `uv run script.py` (no activation needed) |
 | 7. Delete | `rm -rf .venv` | `conda env remove -n myenv` | `rm -rf .venv` |
@@ -776,7 +828,7 @@ In summary:
 - **Use `pip freeze`** when you want an exact snapshot of your working environment
 - **Use `pipreqs`** for clean project deployment with minimal dependencies
 - **Use `pigar`** when you want detailed tracking of where packages are used and need additional package management features
-- **Use `uv add`** (see the [uv workflow](#-uv-fast-all-in-one) above) if starting fresh — it maintains `pyproject.toml`/`uv.lock` automatically as you go, so there's nothing to "generate" after the fact
+- **Use `uv add`** (see the [uv workflow](#️-uv-fast-all-in-one) above) if starting fresh — it maintains `pyproject.toml`/`uv.lock` automatically as you go, so there's nothing to "generate" after the fact
 
 <br>
 

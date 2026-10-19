@@ -1,0 +1,60 @@
+site_name: Dev Guides
+site_description: Practical guides for ML engineers and researchers
+site_url: https://giuliorusso.github.io/Dev-Guides/
+repo_url: https://github.com/GiulioRusso/Dev-Guides
+edit_uri: edit/main/
+
+# The guides live in the repo root; the build copies them into docs/ (see .github/workflows/docs.yml)
+docs_dir: docs
+use_directory_urls: false  # keeps relative <img src="images/..."> paths working
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle: { icon: material/brightness-7, name: Switch to dark mode }
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle: { icon: material/brightness-4, name: Switch to light mode }
+
+hooks:
+  - mkdocs_hooks.py
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Home: README.md
+  - Setup:
+      - Python Setup: Python-Setup-Tutorial.md
+      - SSH: SSH-basics.md
+  - Projects:
+      - Python Project: Python-Project-Guide.md
+      - Machine Learning Project: Machine-Learning-Project-Guide.md
+      - Deep Learning Project: Deep-Learning-Project-Guide.md
+      - PyTorch Lightning: PyTorch-Lightning-Guide.md
+      - Parallel Computation: Parallel-Computation.md
+  - Shipping:
+      - Git: Git.md
+      - Git LFS: Git-LFS.md
+      - Docker: Docker.md
+      - PyPI: PyPI-Guide.md
+  - Medical imaging:
+      - NIfTI: NIfTI-Guide.md

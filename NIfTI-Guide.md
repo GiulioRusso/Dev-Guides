@@ -2,6 +2,41 @@
 
 <center><h1>🧠 Guide to NIfTI Files</h1></center>
 
+**Who this is for:** Students and researchers starting with medical imaging data (MRI, CT, CTA) in NIfTI format.  
+**Last reviewed:** 2026-10  
+**Prerequisites:** Python with NumPy; no medical-imaging background needed.
+
+<details markdown="1">
+<summary><b>Table of Contents</b></summary>
+
+- [ℹ️ Introduction](#ℹ️-introduction)
+- [📚 Useful resources](#-useful-resources)
+- [📁 What is a .nii.gz File?](#-what-is-a-niigz-file)
+- [🐍 Installing Necessary Libraries](#-installing-necessary-libraries)
+- **🧭 Reference system**
+- **👩‍⚕️ Common operations on NIfTI files**
+- **🔭 Tools for imaging**
+- **🔬 ImageJ**
+  - [⚙️ Installation](#️-installation)
+  - [🏞️ ImageJ Interface Overview](#️-imagej-interface-overview)
+- **🩻 ITK-SNAP**
+  - [⚙️ Installation](#️-installation-1)
+  - [🏞️ ITK-SNAP Interface Overview](#️-itk-snap-interface-overview)
+  - [ℹ️ ITK-SNAP User Guide](#ℹ️-itk-snap-user-guide)
+- **⚒️ FSL**
+  - [⚙️ Installation](#️-installation-2)
+  - [🎛️ Launching FSL Tools](#️-launching-fsl-tools)
+  - [ℹ️ Obtain metadata info](#ℹ️-obtain-metadata-info)
+  - [🎮 Skull Stripping commands](#-skull-stripping-commands)
+  - [ℹ️ FSL Wiki](#ℹ️-fsl-wiki)
+- **🧲 Registration Guide**
+  - [🌎 MNI Template: Standardized Brain Atlas for Medical Imaging](#-mni-template-standardized-brain-atlas-for-medical-imaging)
+  - [🏗️ Common MNI Templates](#️-common-mni-templates)
+  - [🔄 Registering an Image to MNI Space](#-registering-an-image-to-mni-space)
+- **👾 Preprocessing pipelines**
+
+</details>
+
 <br>
 
 ## ℹ️ Introduction
@@ -465,7 +500,7 @@ ImageJ is a powerful, open-source image processing tool widely used in scientifi
 <br>
 
 ## ⚙️ Installation
-ImageJ is available for Windows, macOS, and Linux on the [Official Website](https://imagej.nih.gov/ij/).
+ImageJ is available for Windows, macOS, and Linux on the [Official Website](https://imagej.net/ij/).
 
 <br>
 
